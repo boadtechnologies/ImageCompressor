@@ -1,49 +1,60 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
-const container = {
+const containerVariants = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1
-    }
-  }
+      staggerChildren: 0.1,
+    },
+  },
 };
 
-const item = {
+const itemVariants = {
   hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0 }
+  show: { opacity: 1, y: 0 },
 };
 
 export function FAQSection() {
   const faqItems = [
     {
       question: "How does image compression work?",
-      answer: "Image compression works by reducing file size through optimized encoding and the removal of redundant data. Our compression techniques smartly reduce file size while maintaining visual quality to the human eye."
+      answer:
+        "Image compression works by reducing file size through optimized encoding and the removal of redundant data. Our compression techniques smartly reduce file size while maintaining visual quality to the human eye.",
     },
     {
       question: "Will compression affect my image quality?",
-      answer: "Our tool is designed to minimize quality loss while reducing file size. You can choose from different compression levels depending on your needs, and our real-time preview allows you to see the results before downloading."
+      answer:
+        "Our tool is designed to minimize quality loss while reducing file size. You can choose from different compression levels depending on your needs, and our real-time preview allows you to see the results before downloading.",
     },
     {
       question: "What image formats are supported?",
-      answer: "ImageCompressor currently supports JPEG (JPG), PNG, and WEBP formats. You can upload any of these formats and compress them while maintaining the original format."
+      answer:
+        "ImageCompressor currently supports JPEG (JPG), PNG, and WEBP formats. You can upload any of these formats and compress them while maintaining the original format.",
     },
     {
       question: "Is there a file size limit?",
-      answer: "Since all processing happens in your browser, the file size limit depends on your device's capabilities. Most modern browsers can handle images up to 50MB, but for optimal performance, we recommend files under 20MB."
+      answer:
+        "Since all processing happens in your browser, the file size limit depends on your device's capabilities. Most modern browsers can handle images up to 50MB, but for optimal performance, we recommend files under 20MB.",
     },
     {
       question: "How secure is my data?",
-      answer: "Your images never leave your device. All compression happens locally in your browser, meaning no images are uploaded to our servers. This ensures 100% privacy and security for your files."
+      answer:
+        "Your images never leave your device. All compression happens locally in your browser, meaning no images are uploaded to our servers. This ensures 100% privacy and security for your files.",
     },
     {
       question: "Can I compress multiple images at once?",
-      answer: "Yes! Our batch processing feature allows you to compress multiple images simultaneously. You can also download all compressed images as a single ZIP file for convenience."
-    }
+      answer:
+        "Yes! Our batch processing feature allows you to compress multiple images simultaneously. You can also download all compressed images as a single ZIP file for convenience.",
+    },
   ];
 
   return (
@@ -69,21 +80,21 @@ export function FAQSection() {
         </motion.div>
 
         <motion.div
-          variants={container}
+          variants={containerVariants}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
           className="max-w-3xl mx-auto"
         >
           <Accordion type="single" collapsible className="w-full">
-            {faqItems.map((item, index) => (
-              <motion.div key={index} variants={item}>
+            {faqItems.map((faq, index) => (
+              <motion.div key={index} variants={itemVariants}>
                 <AccordionItem value={`item-${index}`} className="group">
                   <AccordionTrigger className="text-lg font-medium group-hover:text-primary transition-colors">
-                    {item.question}
+                    {faq.question}
                   </AccordionTrigger>
                   <AccordionContent className="text-muted-foreground">
-                    {item.answer}
+                    {faq.answer}
                   </AccordionContent>
                 </AccordionItem>
               </motion.div>
