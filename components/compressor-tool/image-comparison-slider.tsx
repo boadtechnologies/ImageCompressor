@@ -3,6 +3,7 @@
 import { X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useEffect, useRef, useState } from 'react';
+import Image from 'next/image';
 
 interface ImageComparisonSliderProps {
   imageA: string; // Original image URL
@@ -84,7 +85,7 @@ export function ImageComparisonSlider({ imageA, imageB, onClose }: ImageComparis
 
       {/* Image B (Compressed) - Full width */}
       <div className="absolute inset-0">
-        <img
+        <Image
           src={imageB}
           alt="Compressed"
           className="w-full h-full object-contain"
@@ -96,7 +97,7 @@ export function ImageComparisonSlider({ imageA, imageB, onClose }: ImageComparis
         className="absolute inset-0 overflow-hidden" 
         style={{ width: `${position}%` }}
       >
-        <img
+        <Image
           src={imageA}
           alt="Original"
           className="w-full h-full object-contain"

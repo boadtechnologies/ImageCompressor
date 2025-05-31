@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Zap } from "lucide-react";
+import Image from "next/image";
 
 export function Hero() {
   return (
@@ -28,8 +29,7 @@ export function Hero() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-teal-500 inline-block">
                 Compress Images
-              </span>
-              {" "}
+              </span>{" "}
               <br className="md:hidden" />
               Without Losing Quality
             </h1>
@@ -41,7 +41,8 @@ export function Hero() {
             transition={{ delay: 0.2, duration: 0.6 }}
             className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto mb-8"
           >
-            Reduce file size while preserving clarity — perfect for websites, emails, and sharing.
+            Reduce file size while preserving clarity — perfect for websites,
+            emails, and sharing.
           </motion.p>
 
           <motion.div
@@ -54,7 +55,9 @@ export function Hero() {
               size="lg"
               className="text-lg group relative overflow-hidden"
               onClick={() => {
-                document.getElementById('compressor-section')?.scrollIntoView({ behavior: 'smooth' });
+                document
+                  .getElementById("compressor-section")
+                  ?.scrollIntoView({ behavior: "smooth" });
               }}
             >
               <span className="relative z-10 flex items-center gap-2">
@@ -63,13 +66,15 @@ export function Hero() {
               </span>
               <span className="absolute inset-0 bg-gradient-to-r from-blue-600 to-teal-600 opacity-0 group-hover:opacity-100 transition-opacity" />
             </Button>
-            
+
             <Button
               variant="outline"
               size="lg"
               className="text-lg group"
               onClick={() => {
-                document.getElementById('features-section')?.scrollIntoView({ behavior: 'smooth' });
+                document
+                  .getElementById("features-section")
+                  ?.scrollIntoView({ behavior: "smooth" });
               }}
             >
               <span className="flex items-center gap-2">
@@ -86,9 +91,15 @@ export function Hero() {
             transition={{ delay: 0.6, duration: 0.8 }}
             className="mt-12 pt-8 border-t border-border/40"
           >
-            <p className="text-sm text-muted-foreground mb-4">Trusted by developers and companies worldwide</p>
+            <p className="text-sm text-muted-foreground mb-4">
+              Trusted by developers and companies worldwide
+            </p>
             <div className="flex justify-center items-center gap-8 opacity-60">
-              <img src="https://boadtechnologies.com/logo.png" alt="Boad Technologies" className="h-8" />
+              <Image
+                src="https://boadtechnologies.com/logo.png"
+                alt="Boad Technologies"
+                className="h-8"
+              />
               {/* Add more company logos here */}
             </div>
           </motion.div>
